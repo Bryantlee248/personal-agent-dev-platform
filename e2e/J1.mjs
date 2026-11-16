@@ -15,8 +15,10 @@ for (const path of ['PROJECT.json', 'package.json', 'ops/autoloop/rules.example.
 
 const manifest = JSON.parse(readFileSync('PROJECT.json', 'utf8'));
 const iwp = manifest.effective?.work_packages?.find((item) => item.id === 'IWP-001');
-if (manifest.state?.active_work_items?.[0] !== 'W-001') failures.push('W-001 is not the active work item');
 if (!iwp || iwp.roadmap_id !== 'W-001') failures.push('IWP-001 is not bound to W-001');
+const w001Active = manifest.state?.active_work_items?.includes('W-001') && ['PLANNED', 'ACTIVE'].includes(iwp?.status);
+const w001Closed = !manifest.state?.active_work_items?.includes('W-001') && iwp?.status === 'CLOSED' && Boolean(iwp?.approval);
+if (!w001Active && !w001Closed) failures.push('W-001 must be active or closed with approval');
 if (manifest.environments?.find((item) => item.id === 'ENV-PILOT')?.status !== 'not-authorized') {
   failures.push('ENV-PILOT must remain not-authorized');
 }
