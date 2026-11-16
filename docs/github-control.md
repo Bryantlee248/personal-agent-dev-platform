@@ -29,8 +29,10 @@ GitHub Project 看板需要额外 `project` OAuth scope。未取得该 scope 前
 - 名称：`server229-personal-agent`
 - 注册范围：仅 `Bryantlee248/personal-agent-dev-platform`
 - 标签：`self-hosted, Linux, X64, server229, personal-agent-ci`
-- 服务账户：`ghrunner`（非 root）
+- 服务账户：`gha-personal`（本仓库专用、非 root）
 - systemd 资源上限：1 GiB 内存、1 CPU、512 tasks
 - 用途：仅运行本仓库治理、收敛、独立验证和轻量 Node 质量门；不承担 Docker、部署或 ENV-PILOT 写操作。
+- 运行时：使用服务器已有 Node.js 22；工作流不在线下载 Node，以适应 229 的受限 HTTPS 出口。
+- 仓库读取：本仓库独立只读 Deploy Key；私钥仅保存在 `gha-personal` HOME，不与旧 Runner 共享。
 
 现有 `trade-tracker` Runner 是另一个 repository-level Runner，不能跨个人仓库直接复用，且其服务曾因 OOM 失败。本项目使用独立目录和服务，避免覆盖其配置。

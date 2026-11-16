@@ -5,8 +5,6 @@ jobs:
     runs-on: [self-hosted, linux, x64, server229, personal-agent-ci]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
       - name: converge (gaps must be 0)
         run: node tools/converge.mjs
   independent-verify:
@@ -14,8 +12,6 @@ jobs:
     runs-on: [self-hosted, linux, x64, server229, personal-agent-ci]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
       - name: independent verify (artifact-based)
         run: node tools/verify.mjs
   build-test:
@@ -24,8 +20,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
       - name: project build & test
         run: |
           npm run lint
