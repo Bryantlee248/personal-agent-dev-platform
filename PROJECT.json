@@ -1,42 +1,73 @@
 {
   "schema_version": 1,
   "project": {
-    "id": "CHANGE-ME",
-    "name": "CHANGE-ME",
-    "governance_level": "L0",
-    "lifecycle": "poc"
+    "id": "personal-agent-dev-platform",
+    "name": "个人多 Agent 协同自动开发平台",
+    "governance_level": "L2",
+    "lifecycle": "discovery"
   },
   "state": {
     "current_gate": "G0",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-001"],
+    "next_work_item": "W-001"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
     "roadmap": "ROADMAP.md",
     "decisions": "DECISIONS.md",
     "worklog": "WORKLOG.md",
-    "human_authorizer": "CHANGE-ME"
+    "human_authorizer": "Bryantlee248"
   },
   "roles": {
-    "architecture": "CHANGE-ME",
-    "delivery": [],
-    "verifier": null
+    "architecture": "Architecture AI",
+    "delivery": ["Delivery AI"],
+    "verifier": "Independent Verification AI"
   },
-  "enforcement": {
-    "file_ownership": true
-  },
+  "enforcement": { "file_ownership": true },
   "effective": {
-    "decisions": [],
-    "work_packages": [],
+    "decisions": [
+      { "id": "D-001", "status": "accepted" },
+      { "id": "D-002", "status": "accepted" },
+      { "id": "D-003", "status": "accepted" },
+      { "id": "D-004", "status": "accepted" }
+    ],
+    "work_packages": [
+      {
+        "id": "IWP-001",
+        "roadmap_id": "W-001",
+        "status": "PLANNED",
+        "primary": "Architecture AI",
+        "verifier": "Independent Verification AI",
+        "approval": null,
+        "file_ownership": [
+          {
+            "owner": "Architecture AI",
+            "paths": ["PROJECT.json", "GOVERNANCE.md", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "AGENTS.md", "README.md", "DESIGN.md", "docs", "specs", ".github", "e2e/J1.mjs", "tools/lint.mjs", "tools/build-check.mjs", "package.json"]
+          }
+        ]
+      }
+    ],
     "artifacts": []
   },
   "gates": [
-    { "id": "G0", "status": "planned", "approval": null },
+    { "id": "G0", "status": "in_progress", "approval": null },
     { "id": "G1", "status": "planned", "approval": null },
     { "id": "G2", "status": "planned", "approval": null },
     { "id": "G3", "status": "planned", "approval": null },
     { "id": "G4", "status": "planned", "approval": null }
   ],
+  "environments": [
+    { "id": "ENV-LOCAL", "kind": "development", "status": "planned", "contains_real_data": false },
+    { "id": "ENV-GITHUB", "kind": "control-plane", "status": "active", "contains_real_data": false },
+    { "id": "ENV-PILOT", "kind": "pilot", "status": "not-authorized", "contains_real_data": false }
+  ],
+  "components": [
+    { "id": "CMP-GOV", "name": "治理控制面", "status": "active" },
+    { "id": "CMP-HUB", "name": "Agent-Autoloop 接力层", "status": "planned" },
+    { "id": "CMP-WORKER", "name": "本地 Agent Worker", "status": "planned" },
+    { "id": "CMP-CI", "name": "GitHub Actions 机器门", "status": "planned" },
+    { "id": "CMP-DEPLOY", "name": "受控部署执行器", "status": "deferred" }
+  ],
+  "evidence_anchors": [],
   "superseded": []
 }

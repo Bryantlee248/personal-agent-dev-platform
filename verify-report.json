@@ -1,0 +1,44 @@
+{
+  "tool": "verify",
+  "at": "2026-11-16T02:52:01.200Z",
+  "note": "independent verification: judged by artifacts, not by agent narration",
+  "all_pass": true,
+  "checks": [
+    {
+      "id": "SPEC_EXISTS",
+      "desc": "specs/spec.md 存在且含旅程",
+      "ok": true,
+      "detail": "journeys=1"
+    },
+    {
+      "id": "DESIGN_EXISTS",
+      "desc": "DESIGN.md 存在（有 UI 项目必须）",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "E2E_SCRIPTS_EXIST",
+      "desc": "e2e 验收脚本存在",
+      "ok": true,
+      "detail": "scripts=1 missing=none"
+    },
+    {
+      "id": "CONVERGED_ARTIFACT",
+      "desc": "converge 产物显示已收敛",
+      "ok": true,
+      "detail": "CONVERGED"
+    },
+    {
+      "id": "PROJECT_QUALITY_COMMANDS",
+      "desc": "实际执行 test/build/lint 质量命令",
+      "ok": true,
+      "detail": "npm lint/test/build 均通过"
+    },
+    {
+      "id": "NO_SECRETS_COMMITTED",
+      "desc": "无密钥明文入库（扫描常见模式）",
+      "ok": true,
+      "detail": "clean"
+    }
+  ]
+}

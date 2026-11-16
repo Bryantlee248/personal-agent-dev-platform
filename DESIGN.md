@@ -1,7 +1,7 @@
 ---
-version: alpha
-name: <设计名>
-description: <一句话：这份设计像什么、给什么感觉>
+version: phase-1
+name: No independent UI
+description: Phase 1 uses GitHub and Obsidian as the operator surfaces; no separate web UI is built.
 colors:
   primary: "#1A3C6E"
   secondary: "#6C7278"
@@ -15,17 +15,18 @@ spacing: { sm: 8px, md: 16px, lg: 24px }
 ---
 
 ## Overview
-（一句话设计意图 + 具体参照物 + 情绪。禁止"现代/干净/高级"这类形容词。）
+
+一期没有独立 UI。GitHub Issue/PR 承担工作控制，Obsidian 承担知识索引，Agent-Autoloop 卡片承担暂停、提问和恢复。这样能避免在核心闭环得到验证前维护额外前端。
 
 ## Colors
-（每个色的含义、何时用、绝不何时用；与上方 tokens 一一对应。）
+这些颜色仅预留给未来只读状态页：蓝色表示正常控制信息，灰色表示辅助信息，浅色作为背景。红黄绿状态色应使用宿主平台原生语义，不由本项目重定义。
 
 ## Typography
-（字号层级、字体、何时用哪级。）
+一期沿用 GitHub 和 Obsidian 的系统字体与层级，不注入自定义样式。frontmatter 字体令牌仅作为未来状态页候选基线。
 
 ## Components
-（关键组件约定：按钮 / 表格 / 表单…）
+一期不开发组件。未来若状态页获批，只允许只读展示队列、工作包、门状态和证据链接；批准、合并和部署继续在权威系统完成。
 
 ## Do's and Don'ts
-- **Do** …
-- **Don't** …
+- **Do** 使用 GitHub 原生 Issue、PR、Checks 和 Obsidian 双向链接。
+- **Don't** 在一期复制 GitHub 权限、审批或 CI 状态。

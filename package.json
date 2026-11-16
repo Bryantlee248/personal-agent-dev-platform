@@ -1,12 +1,13 @@
 {
-  "name": "project-scaffold",
+  "name": "personal-agent-dev-platform",
   "private": true,
   "type": "module",
   "scripts": {
+    "governance": "node scripts/validate-governance.mjs --summary",
     "converge": "node tools/converge.mjs",
     "verify": "node tools/verify.mjs",
-    "test": "node tools/quality-gate.mjs test",
-    "build": "node tools/quality-gate.mjs build",
-    "lint": "node tools/quality-gate.mjs lint"
+    "test": "node e2e/J1.mjs",
+    "build": "node tools/build-check.mjs",
+    "lint": "node tools/lint.mjs"
   }
 }

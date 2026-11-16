@@ -3,19 +3,29 @@
 > 只定「跨旅程共享的骨架」，不写每条旅程的全部细节（那在实现时做）。上限 ~1 页。
 
 ## 技术栈
-（一行引用 docs/adr/0001，不重复）
+见 `docs/adr/0001-tech-stack.md`：Node.js 24、Agent-Autoloop、GitHub/GitHub Actions、PowerShell/Node 脚本和现有 Agent CLI。
 
 ## 架构分层
-（后端分层 + 前端结构，几句话）
+1. 仓库治理控制面：工作项、角色、路径、批准和证据。
+2. Autoloop 接力层：事件、队列、路由、卡片、暂停恢复和回执。
+3. 本地 Worker：Architecture、Delivery、Verification 三种受限执行配置。
+4. GitHub 机器门：PR、required checks、审查账本和固定 SHA。
+5. 部署执行器：后续建立，当前不进入生产。
 
 ## 核心数据模型
-（实体 + 关系，只列跨旅程共享的）
+- Work Item：权威 ID、阶段、授权和验收。
+- Event / Run / Card：Autoloop 运行事实，不复制项目当前状态。
+- PR / Check / Artifact / Deployment：GitHub 与环境事实，以 SHA 关联。
 
 ## 接口约定
-（命名规范 + 关键接口；contracts/ 按需）
+- 事件只能提供来源、类型、对象和资料，不能指定 Agent、目录、权限或收件人。
+- IWP 是 Agent 接力的授权契约。
+- 所有外部写操作在重试前必须先读回当前状态。
 
 ## 前端组件 / 信息架构
-（页面结构 + 组件库选型 + 复用组件）★ 01 教训：上次漏了这块
+第一阶段没有独立 Web UI。状态使用 `agent-autoloop status`、GitHub 和 Obsidian 查看；需要页面时再读取 `/v1/state`，不修改 Hub。
 
 ## 共享约定
-（权限模型 / 审计留痕 / 错误处理）
+- Worker capacity=2；同项目 maxActive=1；重任务串行。
+- 实现失败最多自动返工两轮；基础设施失败最多三次退避。
+- 权限边界由操作系统/CLI/GitHub/CI 执行，提示词不是强制边界。

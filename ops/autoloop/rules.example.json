@@ -1,0 +1,24 @@
+{
+  "agents": {
+    "architecture": {
+      "name": "Architecture AI",
+      "worker": "local-windows",
+      "use": "codex",
+      "access": "read",
+      "maxActive": 1
+    }
+  },
+  "channels": {},
+  "rules": [
+    {
+      "name": "需求进入治理",
+      "when": { "source": "local", "types": ["requirement.opened"] },
+      "to": "architecture",
+      "cwd": "D:/Codex Project/personal-agent-dev-platform",
+      "skill": "intake-requirement",
+      "resume": true,
+      "maxActive": 1,
+      "tell": "questions"
+    }
+  ]
+}
