@@ -23,3 +23,14 @@ GitHub Project 看板需要额外 `project` OAuth scope。未取得该 scope 前
 ## 已知外部门禁
 
 2026-11-16 首次 push 后，GitHub Actions 因账户近期付款失败或支出上限而拒绝分配 Runner，Job 未执行任何步骤。远端 CI 状态必须保持为未验证，直到账户问题由用户处理并成功重跑。
+
+## 229 自托管 Runner
+
+- 名称：`server229-personal-agent`
+- 注册范围：仅 `Bryantlee248/personal-agent-dev-platform`
+- 标签：`self-hosted, Linux, X64, server229, personal-agent-ci`
+- 服务账户：`ghrunner`（非 root）
+- systemd 资源上限：1 GiB 内存、1 CPU、512 tasks
+- 用途：仅运行本仓库治理、收敛、独立验证和轻量 Node 质量门；不承担 Docker、部署或 ENV-PILOT 写操作。
+
+现有 `trade-tracker` Runner 是另一个 repository-level Runner，不能跨个人仓库直接复用，且其服务曾因 OOM 失败。本项目使用独立目录和服务，避免覆盖其配置。
