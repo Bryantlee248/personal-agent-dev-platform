@@ -7,8 +7,8 @@
     "lifecycle": "discovery"
   },
   "state": {
-    "current_gate": "G0",
-    "active_work_items": [],
+    "current_gate": "G1",
+    "active_work_items": ["W-002"],
     "next_work_item": "W-002"
   },
   "authority": {
@@ -45,6 +45,20 @@
             "paths": ["PROJECT.json", "GOVERNANCE.md", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "AGENTS.md", "README.md", "DESIGN.md", "docs", "specs", ".github", "e2e/J1.mjs", "tools/lint.mjs", "tools/build-check.mjs", "package.json"]
           }
         ]
+      },
+      {
+        "id": "IWP-002",
+        "roadmap_id": "W-002",
+        "status": "HUMAN_ACTION_REQUIRED",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly authorized starting the planned implementation on 2026-11-16; scope is isolated local Agent-Autoloop installation and validation only.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/autoloop", "docs/work-packages/IWP-002.md", "docs/evidence/IWP-002"]
+          }
+        ]
       }
     ],
     "artifacts": [
@@ -57,22 +71,22 @@
     ]
   },
   "gates": [
-    { "id": "G0", "status": "conditional", "approval": null },
-    { "id": "G1", "status": "planned", "approval": null },
+    { "id": "G0", "status": "passed", "approval": "W-001 closed with local and GitHub CI evidence; user authorized continuation on 2026-11-16." },
+    { "id": "G1", "status": "blocked", "approval": null },
     { "id": "G2", "status": "planned", "approval": null },
     { "id": "G3", "status": "planned", "approval": null },
     { "id": "G4", "status": "planned", "approval": null }
   ],
   "environments": [
-    { "id": "ENV-LOCAL", "kind": "development", "status": "planned", "contains_real_data": false },
+    { "id": "ENV-LOCAL", "kind": "development", "status": "active", "contains_real_data": false },
     { "id": "ENV-GITHUB", "kind": "control-plane", "status": "active", "contains_real_data": false },
     { "id": "ENV-PILOT", "kind": "pilot", "status": "not-authorized", "contains_real_data": false }
   ],
   "components": [
     { "id": "CMP-GOV", "name": "治理控制面", "status": "active" },
-    { "id": "CMP-HUB", "name": "Agent-Autoloop 接力层", "status": "planned" },
+    { "id": "CMP-HUB", "name": "Agent-Autoloop 接力层", "status": "active" },
     { "id": "CMP-WORKER", "name": "本地 Agent Worker", "status": "planned" },
-    { "id": "CMP-CI", "name": "GitHub Actions 机器门", "status": "planned" },
+    { "id": "CMP-CI", "name": "GitHub Actions 机器门", "status": "active" },
     { "id": "CMP-DEPLOY", "name": "受控部署执行器", "status": "deferred" }
   ],
   "evidence_anchors": [],

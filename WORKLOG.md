@@ -15,3 +15,17 @@
 - Evidence: 本地提交 `81079d8`；仓库 `https://github.com/Bryantlee248/personal-agent-dev-platform`；Issue #1..#8；`D:\BR知识库\BR知识库\10_Project\personal-agent-dev-platform`；本地 governance/converge/verify 全通过。
 - Result: DONE。G0 为 conditional：GitHub Actions 因账户付款失败或支出上限未启动任何步骤，不能声称远端 CI 通过。
 - Next: HUMAN_ACTION_REQUIRED：如需启用远端 CI，请由用户检查 GitHub Billing & plans；IWP-002 仍需单独授权后才可安装 Agent-Autoloop。
+
+### 2026-11-16 | W-002 | STARTED
+- Actor: Delivery AI
+- Scope: 在 `D:\Codex Runtime\personal-agent-autoloop-test` 隔离安装并验证 Agent-Autoloop 固定提交 `c9ec4a187cab49627947e7e33db265ec143db3b8`。
+- Evidence: 用户本轮明确指令“开始执行”；IWP-002。
+- Result: APPROVED_BOUNDARY_ENTERED。仅允许本地隔离安装、测试事件和备份恢复，不接真实通道或部署环境。
+- Next: 核对 Node/Codex 前置条件，导出干净源码快照并执行无服务安装。
+
+### 2026-11-16 | W-002 | BLOCKED
+- Actor: Delivery AI
+- Scope: IWP-002 本地隔离安装和协议/恢复验收。
+- Evidence: `docs/evidence/IWP-002/2026-11-16-isolated-install.md`；隔离 HOME `D:\Codex Runtime\personal-agent-autoloop-test`；备份 `D:\Codex Runtime\personal-agent-autoloop-test-backup`。
+- Result: HUMAN_ACTION_REQUIRED。安装、两轮 conformance、暂停/恢复、stop、备份/恢复均通过；真实 Codex `try` 未运行，因为 `codex login status` 返回 `Not logged in`。
+- Next: 用户本人完成 `codex login` 后，仅补跑 `doctor`、`try`、回答卡片和最终状态核验。
