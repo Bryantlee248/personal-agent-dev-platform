@@ -43,3 +43,10 @@
 - Evidence: 用户明确指令“同意执行”；`docs/work-packages/IWP-003.md`；D-005、D-006。
 - Result: APPROVED_BOUNDARY_ENTERED。仅允许治理同步和本地隔离 PoC；不连接官方 Hub、229部署或真实通道。
 - Next: 先通过本地与远端治理门，再固定 Paseo 版本并执行隔离安装。
+
+### 2026-11-17 | W-003 | BLOCKED
+- Actor: Delivery AI
+- Scope: Paseo `0.16.0` 本地隔离 daemon、Codex provider、worktree、停止恢复、资源和清理验证。
+- Evidence: `docs/evidence/IWP-003/2026-11-17-paseo-isolated-poc.md`；运行手册 `ops/paseo/README.md`。
+- Result: BLOCKED。daemon 仅监听 `127.0.0.1:6767`、relay 关闭，full-access 对照和 worktree 隔离通过；但 Codex `auto-review` 受限模式因 `CreateProcessWithLogonW failed: 2` 无法执行 shell，且 workspace archive 不清理磁盘 worktree。
+- Next: Independent Verification AI 复核证据；另行定位 Windows 受限执行兼容方案或比较具备可验证权限边界的 Agent provider，不以 full-access 代替治理。
