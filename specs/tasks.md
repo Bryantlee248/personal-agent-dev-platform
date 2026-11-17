@@ -13,3 +13,4 @@
 - W-006：接入 GitHub PR、required checks 和交付闭环。
 - W-007：建立固定 SHA 的测试部署和回滚演练。
 - W-008：完成十个低风险真实任务，比较 Paseo、Orca 和回退方案并作 Go/No-Go 评估。
+- W-009：验证 Windows 受限执行兼容性，并对照本机已有 Agent provider。

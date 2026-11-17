@@ -50,3 +50,17 @@
 - Evidence: `docs/evidence/IWP-003/2026-11-17-paseo-isolated-poc.md`；运行手册 `ops/paseo/README.md`。
 - Result: BLOCKED。daemon 仅监听 `127.0.0.1:6767`、relay 关闭，full-access 对照和 worktree 隔离通过；但 Codex `auto-review` 受限模式因 `CreateProcessWithLogonW failed: 2` 无法执行 shell，且 workspace archive 不清理磁盘 worktree。
 - Next: Independent Verification AI 复核证据；另行定位 Windows 受限执行兼容方案或比较具备可验证权限边界的 Agent provider，不以 full-access 代替治理。
+
+### 2026-11-17 | W-009 | STARTED
+- Actor: Architecture AI
+- Scope: 同步 W-003 阻断状态，建立 Windows 受限执行兼容性和本机已有 Agent provider 的隔离对照工作包。
+- Evidence: 用户明确指令“同意继续执行”；`docs/work-packages/IWP-004.md`；OpenAI Codex Issue #60633。
+- Result: APPROVED_BOUNDARY_ENTERED。禁止通过移除 registered-Core 标志、关闭 sandbox 或修改系统 ACL 绕过；只允许隔离对照和公开上游调研。
+- Next: 盘点本机无需新增凭据的 provider，按只读 shell、临时 worktree、权限边界和清理能力逐项验证。
+
+### 2026-11-17 | W-009 | HUMAN_ACTION_REQUIRED
+- Actor: Delivery AI
+- Scope: 调研 Codex Windows sandbox 上游状态，并对本机 TraeCLI、Orca shim 和 CodeBuddy 做无持久、无配置修改的兼容性盘点。
+- Evidence: `docs/evidence/IWP-004/2026-11-17-windows-provider-compatibility.md`；OpenAI Codex Issue #60633。
+- Result: HUMAN_ACTION_REQUIRED。TraeCLI 的受限执行接口最符合需求，但 headless 身份验证失败；本机 Orca 只有 CodeBuddy shim，不能作为独立 Orca 平台；未采用任何 sandbox 绕过。
+- Next: 用户选择并完成 TraeCLI 正式登录后复测，或单独授权安装固定版本 Orca 隔离 PoC。

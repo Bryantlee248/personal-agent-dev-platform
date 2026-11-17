@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-003"],
-    "next_work_item": "W-003"
+    "active_work_items": [],
+    "next_work_item": null
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -65,7 +65,7 @@
       {
         "id": "IWP-003",
         "roadmap_id": "W-003",
-        "status": "APPROVED",
+        "status": "BLOCKED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User approved the revised tool-neutral execution-layer plan and authorized execution on 2026-11-17; current scope is isolated local Paseo PoC only.",
@@ -73,6 +73,21 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/paseo", "docs/work-packages/IWP-003.md", "docs/evidence/IWP-003"]
+          }
+        ]
+      }
+      ,
+      {
+        "id": "IWP-004",
+        "roadmap_id": "W-009",
+        "status": "HUMAN_ACTION_REQUIRED",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly authorized continuation on 2026-11-17; scope is a local, isolated compatibility comparison without weakening sandbox controls or connecting external channels.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/compatibility", "docs/work-packages/IWP-004.md", "docs/evidence/IWP-004"]
           }
         ]
       }
@@ -101,7 +116,7 @@
   "components": [
     { "id": "CMP-GOV", "name": "治理控制面", "status": "active" },
     { "id": "CMP-HUB", "name": "可替换 Agent 执行层", "status": "active" },
-    { "id": "CMP-PASEO", "name": "Paseo 隔离 PoC", "status": "active" },
+    { "id": "CMP-PASEO", "name": "Paseo 隔离 PoC", "status": "blocked" },
     { "id": "CMP-AUTOLOOP", "name": "Agent-Autoloop 基线与回退", "status": "deferred" },
     { "id": "CMP-WORKER", "name": "本地 Agent Worker", "status": "planned" },
     { "id": "CMP-CI", "name": "GitHub Actions 机器门", "status": "active" },
