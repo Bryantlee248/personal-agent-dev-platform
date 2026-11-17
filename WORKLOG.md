@@ -71,3 +71,10 @@
 - Evidence: `docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md`。
 - Result: AUTHORIZED_BOUNDARY_REACHED。模型、Schema、预算和 worktree 通过；Windows sandbox 不可用，shell/edit/write 工具未注册。Qwen 暂只适合设计与复核角色，不可承担开发、测试或 CI。
 - Next: 在不改补丁、不关闭安全控制的前提下查明 core tools 未注册原因；同时可设计 Qwen 只读/结构化 Verification 接口。
+
+### 2026-11-17 | W-009 | ACTIVE
+- Actor: Independent Verification AI (Qwen candidate)
+- Scope: 在零普通工具调用额度和固定 JSON Schema 下，复核 Qwen 角色边界结论。
+- Evidence: `docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md` 的“后续测试：结构化独立复核”。
+- Result: DONE。结构化 verdict 为 `PASS`，无文件变更；证明 Qwen 可进入受控复核链路，不证明其具备开发、测试或部署能力。
+- Next: 只在 `plan` 模式验证受控 `read_file` 评审；写入与 shell 权限继续关闭。

@@ -57,3 +57,12 @@ Schema 输出均可用。当前自定义 Provider 会话没有注册 `run_shell_
 1. 研究 Qwen 自定义 Provider 为什么未注册 core tools；只采用受支持配置，不打补丁绕过。
 2. 若工具面可恢复，在隔离 worktree 重新执行一个写入探针和一个只读 shell 探针。
 3. 在此之前，可把 Qwen 作为 Verification/Design Agent 接入工具中立治理契约。
+
+## 后续测试：结构化独立复核
+
+- 输入：本报告全文，通过标准输入显式传入；不依赖 Agent 自行读取仓库。
+- 约束：`approval-mode=plan`、普通工具调用预算为 0、最长 90 秒、固定 JSON Schema。
+- 结果：`PASS`；Qwen 正确判定现有证据只支持设计、分析、复核角色，不支持写入、测试、CI/CD 或部署。
+- 执行：1 次模型请求，13,356 输入 token、589 输出 token，其中 3,072 为缓存输入；退出码 0。
+- 副作用：0 行新增、0 行删除；仅调用一次 Schema 要求的 `structured_output`。
+- 新观察：会话工具表出现 `read_file`，但仍未出现 `run_shell_command`、`write_file` 或 `edit`。下一步可验证受控只读文件评审，不扩大写入权限。
