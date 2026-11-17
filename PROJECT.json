@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-004"],
+    "next_work_item": "W-004"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -31,7 +31,8 @@
       { "id": "D-003", "status": "accepted" },
       { "id": "D-004", "status": "accepted" },
       { "id": "D-005", "status": "accepted" },
-      { "id": "D-006", "status": "provisional" }
+      { "id": "D-006", "status": "provisional" },
+      { "id": "D-007", "status": "accepted" }
     ],
     "work_packages": [
       {
@@ -88,6 +89,20 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/compatibility", "docs/work-packages/IWP-004.md", "docs/evidence/IWP-004"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-005",
+        "roadmap_id": "W-004",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User authorized executing the most suitable next step on 2026-11-17; scope is an attended, local, tool-neutral handoff MVP without deployment or automatic merge.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/handoff", "e2e/handoff.mjs", "e2e/fixtures/handoff", "docs/evidence/IWP-005", "docs/work-packages/IWP-005.md", "package.json"]
           }
         ]
       }

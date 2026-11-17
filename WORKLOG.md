@@ -85,3 +85,10 @@
 - Evidence: `ops/compatibility/`；`e2e/qwen-verifier.mjs`；`docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md`。
 - Result: BLOCKED。Qwen 的受控 Verification 路径可用，恶意证据样例被正确拒绝；但 shell/edit/write 仍不可用，没有候选满足 IWP-004 的受限 shell 验收，不能承担开发执行层。
 - Next: 保留 Qwen 复核适配器和 Agent-Autoloop 回退基线；等待受支持的 Windows sandbox/provider 修复或另行授权新执行层候选，不继续重复同一路径。
+
+### 2026-11-17 | W-004 | STARTED
+- Actor: Architecture AI
+- Scope: 采用 D-007 的有人在场 MVP，建立工具中立的三角色结构化接力，不再让 Paseo 阻断角色接力验证。
+- Evidence: 用户指令“根据最合适的建议执行”；D-007；`docs/work-packages/IWP-005.md`。
+- Result: APPROVED_BOUNDARY_ENTERED。允许实现接力单校验与本地/229 测试；不允许自动 Agent、自动合并或部署。
+- Next: 先通过治理门，再由 Delivery AI 实现接力校验器与失败关闭测试。

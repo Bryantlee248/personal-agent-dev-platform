@@ -7,7 +7,7 @@
 治理适配层（IWP、固定 SHA、权限、验收、停止条件）
           |
           v
-可替换执行层（首选 Paseo PoC；Orca 候选；Autoloop 回退）
+可替换执行层（当前有人在场；Paseo/Orca 候选；Autoloop 回退）
           |
           +--> Architecture AI（设计与工作包）
           +--> Delivery AI（独立 worktree 实施）

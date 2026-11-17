@@ -15,6 +15,8 @@
 
 ## Phase 2：开发接力
 
+- 先运行有人在场的 MVP：Qwen 设计/复核、Codex 实施、229 确定性 CI。
+- 无人值守执行层是独立增强项，不再作为结构化角色接力的前置条件。
 - Architecture 生成 IWP 并等待范围确认；执行层不得自行改变 IWP。
 - Delivery 使用 D 盘临时工作树，路径越权 fail closed。
 - Verification 读取隔离快照；同问题最多两轮返工。
