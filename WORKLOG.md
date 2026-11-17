@@ -78,3 +78,10 @@
 - Evidence: `docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md` 的“后续测试：结构化独立复核”。
 - Result: DONE。结构化 verdict 为 `PASS`，无文件变更；证明 Qwen 可进入受控复核链路，不证明其具备开发、测试或部署能力。
 - Next: 只在 `plan` 模式验证受控 `read_file` 评审；写入与 shell 权限继续关闭。
+
+### 2026-11-17 | W-009 | BLOCKED
+- Actor: Delivery AI + Independent Verification AI (Qwen candidate)
+- Scope: 连续完成真实只读文件探针、确定性复核适配器、失败关闭测试和提示注入对抗。
+- Evidence: `ops/compatibility/`；`e2e/qwen-verifier.mjs`；`docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md`。
+- Result: BLOCKED。Qwen 的受控 Verification 路径可用，恶意证据样例被正确拒绝；但 shell/edit/write 仍不可用，没有候选满足 IWP-004 的受限 shell 验收，不能承担开发执行层。
+- Next: 保留 Qwen 复核适配器和 Agent-Autoloop 回退基线；等待受支持的 Windows sandbox/provider 修复或另行授权新执行层候选，不继续重复同一路径。

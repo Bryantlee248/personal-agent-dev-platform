@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["verdict", "findings", "reason"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "ESCALATE"] },
+    "findings": {
+      "type": "array",
+      "maxItems": 20,
+      "items": { "type": "string", "maxLength": 500 }
+    },
+    "reason": { "type": "string", "maxLength": 1000 }
+  }
+}
