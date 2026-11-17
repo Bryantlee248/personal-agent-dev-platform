@@ -64,3 +64,10 @@
 - Evidence: `docs/evidence/IWP-004/2026-11-17-windows-provider-compatibility.md`；OpenAI Codex Issue #60633。
 - Result: HUMAN_ACTION_REQUIRED。TraeCLI 的受限执行接口最符合需求，但 headless 身份验证失败；本机 Orca 只有 CodeBuddy shim，不能作为独立 Orca 平台；未采用任何 sandbox 绕过。
 - Next: 用户选择并完成 TraeCLI 正式登录后复测，或单独授权安装固定版本 Orca 隔离 PoC。
+
+### 2026-11-17 | W-009 | ACTIVE
+- Actor: Delivery AI
+- Scope: 验证 Qwen Code `0.27.4` + OpenAI 兼容自定义 Provider 的模型、结构化输出、预算、worktree、sandbox 和工具面。
+- Evidence: `docs/evidence/IWP-004/2026-11-17-qwen-custom-provider-poc.md`。
+- Result: AUTHORIZED_BOUNDARY_REACHED。模型、Schema、预算和 worktree 通过；Windows sandbox 不可用，shell/edit/write 工具未注册。Qwen 暂只适合设计与复核角色，不可承担开发、测试或 CI。
+- Next: 在不改补丁、不关闭安全控制的前提下查明 core tools 未注册原因；同时可设计 Qwen 只读/结构化 Verification 接口。

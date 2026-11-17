@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-009"],
+    "next_work_item": "W-009"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -80,7 +80,7 @@
       {
         "id": "IWP-004",
         "roadmap_id": "W-009",
-        "status": "HUMAN_ACTION_REQUIRED",
+        "status": "ACTIVE",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly authorized continuation on 2026-11-17; scope is a local, isolated compatibility comparison without weakening sandbox controls or connecting external channels.",
