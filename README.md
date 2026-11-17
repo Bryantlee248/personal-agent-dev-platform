@@ -11,7 +11,7 @@
 ## 架构
 
 - **治理控制面**：`PROJECT.json`、`GOVERNANCE.md`、`ROADMAP.md`、IWP、批准和证据。
-- **接力层**：Agent-Autoloop，负责事件、队列、路由、暂停恢复和回执。
+- **执行层**：可替换的 Agent 工具；Paseo 优先 PoC，Orca 保留对比，Agent-Autoloop 保留基线与回退。
 - **执行层**：本地 Architecture / Delivery / Verification Agent。
 - **机器门**：GitHub Actions、治理校验、测试和构建。
 - **部署层**：后续工作项建立，当前未授权生产或 229 写操作。
@@ -21,7 +21,7 @@
 - 生命周期：Discovery
 - 阶段门：G0 立项与基线
 - 活跃工作项：W-001
-- 当前不会安装 Autoloop、创建密钥、接飞书或部署生产。
+- 当前只允许本地隔离 Paseo PoC；不会连接官方 Hub、创建外部密钥、接飞书或部署生产。
 
 ## 本地验证
 

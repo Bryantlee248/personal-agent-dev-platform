@@ -16,7 +16,7 @@ spacing: { sm: 8px, md: 16px, lg: 24px }
 
 ## Overview
 
-一期没有独立 UI。GitHub Issue/PR 承担工作控制，Obsidian 承担知识索引，Agent-Autoloop 卡片承担暂停、提问和恢复。这样能避免在核心闭环得到验证前维护额外前端。
+一期不自建独立 UI。GitHub Issue/PR 承担工作控制，Obsidian承担知识索引，Paseo候选界面承担Agent运行、暂停和普通问答。这样能避免在核心闭环得到验证前维护额外前端，并允许以后替换执行工具。
 
 ## Colors
 这些颜色仅预留给未来只读状态页：蓝色表示正常控制信息，灰色表示辅助信息，浅色作为背景。红黄绿状态色应使用宿主平台原生语义，不由本项目重定义。

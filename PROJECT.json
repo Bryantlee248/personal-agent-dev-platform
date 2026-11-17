@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-002"],
-    "next_work_item": "W-002"
+    "active_work_items": ["W-003"],
+    "next_work_item": "W-003"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -29,7 +29,9 @@
       { "id": "D-001", "status": "accepted" },
       { "id": "D-002", "status": "accepted" },
       { "id": "D-003", "status": "accepted" },
-      { "id": "D-004", "status": "accepted" }
+      { "id": "D-004", "status": "accepted" },
+      { "id": "D-005", "status": "accepted" },
+      { "id": "D-006", "status": "provisional" }
     ],
     "work_packages": [
       {
@@ -49,7 +51,7 @@
       {
         "id": "IWP-002",
         "roadmap_id": "W-002",
-        "status": "HUMAN_ACTION_REQUIRED",
+        "status": "CLOSED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly authorized starting the planned implementation on 2026-11-16; scope is isolated local Agent-Autoloop installation and validation only.",
@@ -57,6 +59,20 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/autoloop", "docs/work-packages/IWP-002.md", "docs/evidence/IWP-002"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-003",
+        "roadmap_id": "W-003",
+        "status": "APPROVED",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User approved the revised tool-neutral execution-layer plan and authorized execution on 2026-11-17; current scope is isolated local Paseo PoC only.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/paseo", "docs/work-packages/IWP-003.md", "docs/evidence/IWP-003"]
           }
         ]
       }
@@ -72,7 +88,7 @@
   },
   "gates": [
     { "id": "G0", "status": "passed", "approval": "W-001 closed with local and GitHub CI evidence; user authorized continuation on 2026-11-16." },
-    { "id": "G1", "status": "blocked", "approval": null },
+    { "id": "G1", "status": "in_progress", "approval": "User authorized the revised execution-layer PoC on 2026-11-17; Paseo remains isolated until IWP-003 evidence is independently verified." },
     { "id": "G2", "status": "planned", "approval": null },
     { "id": "G3", "status": "planned", "approval": null },
     { "id": "G4", "status": "planned", "approval": null }
@@ -84,7 +100,9 @@
   ],
   "components": [
     { "id": "CMP-GOV", "name": "治理控制面", "status": "active" },
-    { "id": "CMP-HUB", "name": "Agent-Autoloop 接力层", "status": "active" },
+    { "id": "CMP-HUB", "name": "可替换 Agent 执行层", "status": "active" },
+    { "id": "CMP-PASEO", "name": "Paseo 隔离 PoC", "status": "active" },
+    { "id": "CMP-AUTOLOOP", "name": "Agent-Autoloop 基线与回退", "status": "deferred" },
     { "id": "CMP-WORKER", "name": "本地 Agent Worker", "status": "planned" },
     { "id": "CMP-CI", "name": "GitHub Actions 机器门", "status": "active" },
     { "id": "CMP-DEPLOY", "name": "受控部署执行器", "status": "deferred" }

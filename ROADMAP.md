@@ -5,10 +5,10 @@
 | ID | 结果 | 负责人 | 依赖 | 证据 | 状态 |
 |---|---|---|---|---|---|
 | W-001 | 建立项目控制面、需求基线和 GitHub/Obsidian 双索引 | Architecture AI | - | 仓库、Issue、知识库 | DONE |
-| W-002 | 在隔离测试目录安装并验收 Agent-Autoloop 固定版本 | Delivery AI | W-001 | conformance、备份恢复报告 | ACTIVE |
-| W-003 | 接入一个本地只读 Architecture Agent 和人工卡片闭环 | Delivery AI | W-002 | ask/answer/resume/stop 证据 | PLANNED |
-| W-004 | 接入 Delivery Agent、独立工作树与资源保护锁 | Delivery AI | W-003 | 越权、并发、低内存测试 | PLANNED |
+| W-002 | 建立 Agent-Autoloop 隔离验证基线 | Delivery AI | W-001 | conformance、备份恢复、第三方模型协议偏差 | CANCELLED |
+| W-003 | 隔离安装并验收 Paseo 本地执行层 | Delivery AI | W-001,W-002 | daemon、停止恢复、worktree、资源与权限报告 | ACTIVE |
+| W-004 | 建立设计、开发、复核三角色接力与独立工作树 | Delivery AI | W-003 | 角色越权、交接、并发与低内存测试 | PLANNED |
 | W-005 | 接入 Verification Agent 和两轮返工上限 | Delivery AI | W-004 | PASS/FAIL/人工升级场景 | PLANNED |
 | W-006 | 建立 GitHub PR、required checks 和交付插件闭环 | Delivery AI | W-005 | 红灯阻断、固定 SHA、审查账本 | PLANNED |
 | W-007 | 建立受控测试环境部署、健康核对与回滚演练 | Delivery AI | W-006 | 部署与回滚证据 | PLANNED |
-| W-008 | 连续完成 10 个真实低风险工作项并作试点评估 | Architecture AI | W-007 | 指标报告、风险复盘、Go/No-Go | PLANNED |
+| W-008 | 连续完成 10 个真实低风险工作项并完成执行层选型 | Architecture AI | W-007 | 指标报告、Paseo/Orca/回退方案比较、Go/No-Go | PLANNED |

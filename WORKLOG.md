@@ -29,3 +29,17 @@
 - Evidence: `docs/evidence/IWP-002/2026-11-16-isolated-install.md`；隔离 HOME `D:\Codex Runtime\personal-agent-autoloop-test`；备份 `D:\Codex Runtime\personal-agent-autoloop-test-backup`。
 - Result: HUMAN_ACTION_REQUIRED。安装、两轮 conformance、暂停/恢复、stop、备份/恢复均通过；真实 Codex `try` 未运行，因为 `codex login status` 返回 `Not logged in`。
 - Next: 用户本人完成 `codex login` 后，仅补跑 `doctor`、`try`、回答卡片和最终状态核验。
+
+### 2026-11-17 | W-002 | CANCELLED
+- Actor: Architecture AI
+- Scope: 复核 Autoloop 隔离 PoC 的实际结果并调整执行层选型。
+- Evidence: `docs/evidence/IWP-002/2026-11-16-isolated-install.md`；本地问答运行 #11..#17；用户批准的工具中立方案。
+- Result: CANCELLED。第三方 Codex Provider 和问答链路可用，但模型连续违反固定输出契约；保留 Autoloop 基线与回退，不宣称完整验收通过。
+- Next: 按 IWP-003 隔离验证 Paseo，不连接官方 Hub 或外部通道。
+
+### 2026-11-17 | W-003 | STARTED
+- Actor: Architecture AI
+- Scope: 建立 Paseo 本地隔离 PoC 工作包、部署边界和验收标准。
+- Evidence: 用户明确指令“同意执行”；`docs/work-packages/IWP-003.md`；D-005、D-006。
+- Result: APPROVED_BOUNDARY_ENTERED。仅允许治理同步和本地隔离 PoC；不连接官方 Hub、229部署或真实通道。
+- Next: 先通过本地与远端治理门，再固定 Paseo 版本并执行隔离安装。

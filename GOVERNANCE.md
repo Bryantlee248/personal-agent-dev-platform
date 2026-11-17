@@ -12,7 +12,7 @@
 | Architecture AI | 需求澄清、IWP、治理白名单、架构评审 | 不写业务代码，不替人签字 |
 | Delivery AI | 仅在 IWP 授权路径内实施并提交 PR | 不改治理文件，不直接部署 |
 | Independent Verification AI | 只读检查 diff、测试与证据 | 不修复自己发现的问题 |
-| Autoloop Hub | 事件、排队、路由、暂停恢复、回执 | 不作业务、质量或生产决策 |
+| Agent 执行层 | 启动 Agent、隔离工作区、接力、暂停恢复和运行记录 | 不作业务、质量或生产决策，不取代 GitHub 状态 |
 
 ## 不可绕过
 
@@ -40,7 +40,7 @@
 
 ## 冲突优先级
 
-法律/平台政策 > 人类当前明确授权 > 本文件 > PROJECT.json > 已接受决策 > IWP > Autoloop 规则 > Agent 提示词。
+法律/平台政策 > 人类当前明确授权 > 本文件 > PROJECT.json > 已接受决策 > IWP > 执行层规则 > Agent 提示词。
 
 ## 完成定义
 
