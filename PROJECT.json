@@ -219,6 +219,24 @@
             "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-012.md", "docs/evidence/IWP-012"]
           }
         ]
+      },
+      {
+        "id": "IWP-013",
+        "roadmap_id": "W-007",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User authorized the project owner to arrange W-007 recovery redesign execution on 2026-11-18; Delivery starts only after the separate IWP-013 contract PR passes five required checks and merges normally.",
+        "file_ownership": [
+          {
+            "owner": "Architecture AI",
+            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-013.md", "docs/evidence/IWP-013/architecture"]
+          },
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/transactional-deploy", "e2e/transactional-deploy.mjs", "e2e/fixtures/transactional-deploy", "docs/evidence/IWP-013/delivery", "package.json"]
+          }
+        ]
       }
     ],
     "artifacts": [
