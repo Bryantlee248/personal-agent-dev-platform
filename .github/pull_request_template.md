@@ -1,18 +1,20 @@
-## 角色
-<!-- gov:role = implementation -->
-角色 =
+IWP: IWP-000
+Role: Delivery AI
+Fixed head SHA: REPLACE_WITH_FULL_HEAD_SHA
+Verification verdict: PASS
+Verification fixed SHA: REPLACE_WITH_FULL_HEAD_SHA
+Verification session: REPLACE_WITH_SESSION_UUID
+Expected checks: Governance / Validate governance control plane, ci / build-test, ci / converge, ci / independent-verify
+Human merge required: YES
 
-## 关联工作项
-<!-- gov:iwp = IWP-xxx -->
-工作项 =
+## Scope
 
-## 本次改动路径（逗号分隔，必须 ⊆ PROJECT.json 声明的拥有路径）
-<!-- gov:paths = -->
-路径 =
+Describe the bounded change.
 
-## 变更说明
--
+## Evidence
 
-## 批准证据（APPROVED/CLOSED/gate passed 必填：PR 号 / merge sha / 审批记录路径）
-<!-- gov:approval = -->
-证据 =
+Link repository evidence and the fixed-SHA CI runs.
+
+## Residual risk
+
+List remaining risks. Do not include credentials or private data.
