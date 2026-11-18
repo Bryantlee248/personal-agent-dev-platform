@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-005"],
-    "next_work_item": "W-005"
+    "active_work_items": [],
+    "next_work_item": "W-006"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -123,7 +123,7 @@
       {
         "id": "IWP-007",
         "roadmap_id": "W-005",
-        "status": "ACTIVE",
+        "status": "CLOSED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly authorized continuing validation on 2026-11-18; scope is an attended deterministic verification state machine with at most two repair rounds.",
