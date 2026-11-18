@@ -196,3 +196,9 @@
 - Scope: Stop IWP-011 after two effective independent reviews with remaining P0/P1; authorize IWP-012 architecture redesign without continuing the draft or changing required checks.
 - Result: AUTHORIZED_BOUNDARY_REACHED. IWP-011 is BLOCKED; W-007 remains ACTIVE. IWP-012 is ACTIVE for Architecture only. No implementation, deployment, merge, or W-008.
 - Next: Protected Architecture PR under trusted-base IWP-011 ownership; after five required checks and normal merge, IWP-012 may add its detailed contract in a separate protected Architecture PR.
+
+### 2026-11-18 | W-007 | ACTIVE
+- Actor: Architecture AI; IWP-012 contract merged under normal branch protection at `d45ff01ffd00db684b4c3b0cc76d709dd031894c`.
+- Scope: Register IWP-013 for the later Delivery implementation of the frozen local crash-recovery contract. IWP-012 remains ACTIVE; this first bootstrap PR changes only its trusted-base Architecture-owned governance paths.
+- Result: AUTHORIZED_BOUNDARY_REACHED. Delivery implementation remains gated on a second protected Architecture PR adding `docs/work-packages/IWP-013.md` and normal five-check merge. No protection change, implementation, deployment, or W-008.
+- Next: After first PR merges, bind second Architecture PR to trusted-base IWP-013; close IWP-012 only after the IWP-013 contract is merged and evidence is complete.
