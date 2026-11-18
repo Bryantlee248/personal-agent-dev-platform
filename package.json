@@ -6,7 +6,7 @@
     "governance": "node scripts/validate-governance.mjs --summary",
     "converge": "node tools/converge.mjs",
     "verify": "node tools/verify.mjs",
-    "test": "node e2e/J1.mjs && node e2e/qwen-verifier.mjs && node e2e/handoff-runtime.mjs",
+    "test": "node e2e/J1.mjs && node e2e/qwen-verifier.mjs && node e2e/handoff-runtime.mjs && node e2e/verification-state.mjs",
     "build": "node tools/build-check.mjs",
     "lint": "node tools/lint.mjs"
   }

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "state": {
+    "handoff_id": "HOF-007",
+    "fixed_sha": "de3244bf02a5e01b419c0dbdb2d23c5f77a35dc3",
+    "repair_round": 0,
+    "status": "AWAITING_VERIFICATION"
+  },
+  "review": {
+    "handoff_id": "HOF-007",
+    "fixed_sha": "de3244bf02a5e01b419c0dbdb2d23c5f77a35dc3",
+    "repair_round": 0,
+    "verdict": "PASS",
+    "findings": [],
+    "write_paths": [],
+    "command_ids": []
+  }
+}
