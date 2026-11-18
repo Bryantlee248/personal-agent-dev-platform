@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-010"],
-    "next_work_item": "W-010"
+    "active_work_items": [],
+    "next_work_item": null
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -109,7 +109,7 @@
       {
         "id": "IWP-006",
         "roadmap_id": "W-010",
-        "status": "ACTIVE",
+        "status": "CLOSED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly approved the redesigned handoff contract on 2026-11-18; scope is a local attended validator bound to policy and authorization stored at a fixed Git commit.",

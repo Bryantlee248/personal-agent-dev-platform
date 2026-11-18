@@ -106,3 +106,10 @@
 - Evidence: 用户明确“同意”；`contracts/handoff-policy.json`；`docs/work-packages/IWP-006.md`。
 - Result: APPROVED_BOUNDARY_ENTERED。先冻结可信策略并通过 229，再允许 Delivery 实现；策略不得为迁就实现而修改。
 - Next: 提交治理与策略基线，待远端门通过后实施 IWP-006。
+
+### 2026-11-18 | W-010 | DONE
+- Actor: Delivery AI + Independent Verification AI (Qwen)
+- Scope: 以固定 SHA manifest/IWP/policy、command ID 和规范化精确路径实现结构化接力校验。
+- Evidence: `docs/evidence/IWP-006/2026-11-18-fixed-policy-handoff.md`；Qwen 会话 `6918b72e-7ab5-4413-9ff4-e4176b92cfff`、`0fe4f487-5b2f-4582-95b7-71292f42e42f`。
+- Result: DONE。两轮只读复核均 PASS；本地全部门通过；校验器不执行命令、不启动 Agent、不合并或部署。
+- Next: 由 229 Runner 对最终提交执行 Governance、converge、independent-verify 和 build-test；通过后可规划 W-005 的 PASS/FAIL/人工升级状态机。

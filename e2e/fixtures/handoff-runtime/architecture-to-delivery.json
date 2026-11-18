@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "handoff_id": "HOF-006",
+  "work_item": "W-010",
+  "fixed_sha": "de3244bf02a5e01b419c0dbdb2d23c5f77a35dc3",
+  "from_role": "Architecture",
+  "to_role": "Delivery",
+  "status": "READY",
+  "workspace": {
+    "isolation": "git-worktree",
+    "path": ".worktrees/w-010-delivery"
+  },
+  "read_paths": [
+    "PROJECT.json",
+    "contracts/handoff-policy.json",
+    "docs/work-packages/IWP-006.md"
+  ],
+  "write_paths": [
+    "docs/evidence/IWP-006",
+    "e2e/fixtures/handoff-runtime",
+    "ops/handoff-runtime"
+  ],
+  "command_ids": [
+    "handoff-runtime-e2e",
+    "lint",
+    "test",
+    "build",
+    "governance",
+    "converge",
+    "verify"
+  ],
+  "stop_conditions": [
+    "Any path or command ID is absent from the fixed policy",
+    "Any deployment, automatic merge, external channel, or real credential is required",
+    "Two independent review rounds still find a material defect"
+  ]
+}
