@@ -32,10 +32,48 @@ function pathCovered(path, owned) {
   return owned.some((root) => path === root || path.startsWith(`${root}/`));
 }
 
+function ownedPaths(manifest, workPackageId, role) {
+  const workPackage = manifest?.effective?.work_packages?.find((item) => item.id === workPackageId);
+  if (!workPackage || workPackage.status !== 'ACTIVE' || typeof workPackage.approval !== 'string' || workPackage.approval.length < 20) {
+    throw new Error('IWP is not active and authorized at trusted base SHA');
+  }
+  const owned = (workPackage.file_ownership ?? [])
+    .filter((entry) => entry.owner === role)
+    .flatMap((entry) => entry.paths ?? [])
+    .map(normalizePath);
+  if (!owned.length || owned.includes(null)) throw new Error(`IWP ${role} ownership is invalid`);
+  return owned;
+}
+
+function normalizedChanges(changedPaths) {
+  if (!Array.isArray(changedPaths) || !changedPaths.length) throw new Error('PR has no changed paths');
+  const normalized = changedPaths.map(normalizePath);
+  if (normalized.includes(null)) throw new Error('PR contains an unsafe changed path');
+  return normalized;
+}
+
 export function validateDelivery({ body, headSha, baseSha, changedPaths, manifest }) {
   if (typeof body !== 'string' || body.length > 64 * 1024) throw new Error('PR body is missing or oversized');
   if (SECRET_PATTERNS.some((pattern) => pattern.test(body))) throw new Error('PR body contains a possible secret');
   if (!/^[0-9a-f]{40}$/.test(headSha) || !/^[0-9a-f]{40}$/.test(baseSha)) throw new Error('base/head SHA must be full lowercase commits');
+
+  const governanceRole = body.match(/<!--\s*gov:role\s*=\s*(\S+)\s*-->/i)?.[1]?.toLowerCase();
+  const governanceIwp = body.match(/<!--\s*gov:iwp\s*=\s*(\S+)\s*-->/i)?.[1];
+  if (governanceRole === 'architecture') {
+    if (!governanceIwp) throw new Error('Architecture PR must bind gov:iwp');
+    const changed = normalizedChanges(changedPaths);
+    const owned = ownedPaths(manifest, governanceIwp, 'Architecture AI');
+    if (changed.some((path) => !pathCovered(path, owned))) throw new Error('Architecture PR mixes paths outside trusted IWP ownership');
+    return {
+      ok: true,
+      applicable: false,
+      reason: 'architecture-governance-only',
+      iwp: governanceIwp,
+      head_sha: headSha,
+      changed_paths: changed.length,
+      human_merge_required: true
+    };
+  }
 
   const workPackageId = field(body, 'IWP');
   const role = field(body, 'Role');
@@ -55,21 +93,13 @@ export function validateDelivery({ body, headSha, baseSha, changedPaths, manifes
   if (humanMerge !== 'YES') throw new Error('Human merge required must be YES');
   if (JSON.stringify(checks.sort()) !== JSON.stringify([...REQUIRED_CHECKS].sort())) throw new Error('Expected checks do not match the fixed delivery contract');
 
-  const workPackage = manifest?.effective?.work_packages?.find((item) => item.id === workPackageId);
-  if (!workPackage || workPackage.status !== 'ACTIVE' || typeof workPackage.approval !== 'string' || workPackage.approval.length < 20) {
-    throw new Error('IWP is not active and authorized at trusted base SHA');
-  }
-  const owned = (workPackage.file_ownership ?? [])
-    .filter((entry) => entry.owner === role)
-    .flatMap((entry) => entry.paths ?? [])
-    .map(normalizePath);
-  if (!owned.length || owned.includes(null)) throw new Error('IWP ownership is invalid');
-  if (!Array.isArray(changedPaths) || !changedPaths.length) throw new Error('PR has no changed paths');
-  const normalized = changedPaths.map(normalizePath);
-  if (normalized.includes(null) || normalized.some((path) => !pathCovered(path, owned))) throw new Error('PR changes a path outside IWP ownership');
+  const owned = ownedPaths(manifest, workPackageId, role);
+  const normalized = normalizedChanges(changedPaths);
+  if (normalized.some((path) => !pathCovered(path, owned))) throw new Error('PR changes a path outside IWP ownership');
 
   return {
     ok: true,
+    applicable: true,
     iwp: workPackageId,
     head_sha: headSha,
     changed_paths: normalized.length,
