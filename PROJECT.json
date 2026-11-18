@@ -38,7 +38,7 @@
       {
         "id": "IWP-001",
         "roadmap_id": "W-001",
-        "status": "ACTIVE",
+        "status": "CLOSED",
         "primary": "Architecture AI",
         "verifier": "Independent Verification AI",
         "approval": "Direct user authorization to create the governed project, GitHub control plane, and Obsidian knowledge base on 2026-11-16.",
@@ -109,7 +109,7 @@
       {
         "id": "IWP-006",
         "roadmap_id": "W-010",
-        "status": "CLOSED",
+        "status": "ACTIVE",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly approved the redesigned handoff contract on 2026-11-18; scope is a local attended validator bound to policy and authorization stored at a fixed Git commit.",
