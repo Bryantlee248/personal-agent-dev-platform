@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-006"],
-    "next_work_item": "W-006"
+    "active_work_items": [],
+    "next_work_item": "W-007"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -152,7 +152,7 @@
       {
         "id": "IWP-009",
         "roadmap_id": "W-006",
-        "status": "ACTIVE",
+        "status": "CLOSED",
         "primary": "Architecture AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly authorized making the repository public and then approved the governed W-006 repair and merge sequence on 2026-11-18.",
