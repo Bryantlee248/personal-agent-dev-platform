@@ -155,3 +155,10 @@
 - Evidence: `docs/evidence/IWP-008/2026-11-18-github-delivery-contract.md`；实现提交 `0a2c0da40e907724bfe46210d737f65286c0874f`；Qwen 会话 `e3247d5f-481a-4f09-8b5a-fdfd20232dff`（FAIL）、`66e50fe7-745c-474d-bba4-6e944ae0d2c1`（PASS）；关闭且未合并的 PR #11。
 - Result: HUMAN_ACTION_REQUIRED。可落地的 PR 契约和真实检查已通过；但当前 GitHub 私有仓库套餐不支持 branch protection/rulesets，无法机械阻止红灯合并，W-006 不得标记 DONE。
 - Next: 用户选择升级 GitHub Pro 或明确授权将仓库公开后，才能配置 required checks 并执行真实红灯合并阻断演练；否则保持阻断，不进入 W-007。
+
+### 2026-11-18 | W-006 | ACTIVE
+- Actor: Human + Architecture AI
+- Scope: 解除私有仓库套餐阻断，启用 GitHub 原生分支保护，并修复 Delivery Contract 对治理 PR 的适用性。
+- Evidence: 用户明确选择“公开仓库”并同意后续治理修复；仓库可见性 `PUBLIC`；PR #12 的红灯检查使 `mergeStateStatus=BLOCKED`。
+- Result: APPROVED_BOUNDARY_ENTERED。`master` 已要求 Governance、converge、independent-verify、build-test 且管理员同样受约束；Delivery Contract 暂未列入 required checks，等待 not-applicable 修复。
+- Next: 按 IWP-009 先合并治理基线，再由 Delivery 修复并验证，最后加入完整 required checks并关闭 W-006。

@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-006"],
+    "next_work_item": "W-006"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -32,7 +32,8 @@
       { "id": "D-004", "status": "accepted" },
       { "id": "D-005", "status": "accepted" },
       { "id": "D-006", "status": "provisional" },
-      { "id": "D-007", "status": "accepted" }
+      { "id": "D-007", "status": "accepted" },
+      { "id": "D-008", "status": "accepted" }
     ],
     "work_packages": [
       {
@@ -145,6 +146,24 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/github-delivery", "e2e/github-delivery.mjs", "e2e/fixtures/github-delivery", ".github/pull_request_template.md", ".github/workflows/delivery-contract.yml", "docs/evidence/IWP-008", "docs/work-packages/IWP-008.md", "package.json"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-009",
+        "roadmap_id": "W-006",
+        "status": "ACTIVE",
+        "primary": "Architecture AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly authorized making the repository public and then approved the governed W-006 repair and merge sequence on 2026-11-18.",
+        "file_ownership": [
+          {
+            "owner": "Architecture AI",
+            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-009.md", "docs/evidence/IWP-009"]
+          },
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/github-delivery", "e2e/github-delivery.mjs", ".github/workflows/delivery-contract.yml", "package.json"]
           }
         ]
       }
