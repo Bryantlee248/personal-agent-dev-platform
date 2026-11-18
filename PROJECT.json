@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-010"],
+    "next_work_item": "W-010"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -38,7 +38,7 @@
       {
         "id": "IWP-001",
         "roadmap_id": "W-001",
-        "status": "CLOSED",
+        "status": "ACTIVE",
         "primary": "Architecture AI",
         "verifier": "Independent Verification AI",
         "approval": "Direct user authorization to create the governed project, GitHub control plane, and Obsidian knowledge base on 2026-11-16.",

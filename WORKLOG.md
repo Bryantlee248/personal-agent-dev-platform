@@ -113,3 +113,10 @@
 - Evidence: `docs/evidence/IWP-006/2026-11-18-fixed-policy-handoff.md`；Qwen 会话 `6918b72e-7ab5-4413-9ff4-e4176b92cfff`、`0fe4f487-5b2f-4582-95b7-71292f42e42f`。
 - Result: DONE。两轮只读复核均 PASS；本地全部门通过；校验器不执行命令、不启动 Agent、不合并或部署。
 - Next: 由 229 Runner 对最终提交执行 Governance、converge、independent-verify 和 build-test；通过后可规划 W-005 的 PASS/FAIL/人工升级状态机。
+
+### 2026-11-18 | W-010 | ACTIVE
+- Actor: Architecture AI
+- Scope: 修正 229 浅克隆无法验证固定策略提交祖先关系的 CI 前置条件。
+- Evidence: GitHub Actions run `44213170484`，independent-verify 报 `fixed_sha must be reachable from current HEAD`。
+- Result: AUTHORIZED_BOUNDARY_REACHED。实现与本地验证通过，但远端未完成；保留祖先安全门，改用完整 Git checkout。
+- Next: 推送 `fetch-depth: 0` 后重新等待 Governance 与完整 CI。
