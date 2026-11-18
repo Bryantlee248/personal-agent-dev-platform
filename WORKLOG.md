@@ -141,3 +141,10 @@
 - Evidence: `docs/evidence/IWP-007/2026-11-18-verification-state.md`；实现提交 `05696c9a33b6ba5aee5d545c0bab8d2e8bcf77da`；Qwen 会话 `5393ad44-14db-4979-bc8f-c1c9ac1bcb51`、`1efec88e-17c6-4b42-aca2-09b531293145`；Governance `44215585816`；CI `44215585992`。
 - Result: DONE。两轮 Qwen 复核 PASS，本地与 229 全部门禁通过；未启动 Agent、执行接力命令、合并、发布或部署。
 - Next: W-006 仍为 PLANNED，需另行建立工作包后才能接入 GitHub PR 与 required checks 闭环。
+
+### 2026-11-18 | W-006 | STARTED
+- Actor: Architecture AI
+- Scope: 建立 GitHub PR 元数据契约、固定 SHA 检查、审查账本和 required checks 交付闭环。
+- Evidence: 用户明确“同意”；GitHub Issue #6；branch protection 与 rulesets API 均返回 `403 Upgrade to GitHub Pro or make this repository public`。
+- Result: APPROVED_BOUNDARY_ENTERED。允许实现和验证 PR 契约、确定性检查与证据；禁止自动合并、发布、部署、公开仓库或付费升级。
+- Next: 先通过 229 Governance，再实现可落地部分；私有仓库 required checks 的机械强制保持阻断，不能以文档规则替代。

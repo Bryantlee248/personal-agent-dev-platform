@@ -8,7 +8,7 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
+    "active_work_items": ["W-006"],
     "next_work_item": "W-006"
   },
   "authority": {
@@ -131,6 +131,20 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/verification-state", "e2e/verification-state.mjs", "e2e/fixtures/verification-state", "docs/evidence/IWP-007", "docs/work-packages/IWP-007.md", "package.json"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-008",
+        "roadmap_id": "W-006",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly agreed to continue on 2026-11-18; scope is the GitHub PR metadata, deterministic check, and review-ledger layer without automatic merge, release, or deployment.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/github-delivery", "e2e/github-delivery.mjs", "e2e/fixtures/github-delivery", ".github/pull_request_template.md", ".github/workflows/delivery-contract.yml", "docs/evidence/IWP-008", "docs/work-packages/IWP-008.md", "package.json"]
           }
         ]
       }
