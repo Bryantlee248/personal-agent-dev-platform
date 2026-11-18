@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-007"],
-    "next_work_item": "W-007"
+    "active_work_items": [],
+    "next_work_item": "W-008"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -171,7 +171,7 @@
       {
         "id": "IWP-010",
         "roadmap_id": "W-007",
-        "status": "ACTIVE",
+        "status": "BLOCKED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly authorized continuing into W-007 and approved the one-time governance bootstrap procedure on 2026-11-18; scope is a local isolated fixed-SHA deployment simulation only.",
