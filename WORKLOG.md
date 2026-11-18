@@ -169,3 +169,10 @@
 - Evidence: `docs/evidence/IWP-009/2026-11-18-w006-public-protected-delivery.md`；PR #14；实现 `92e4009246a30f212c1092cf59085490640cc606`；合并 `48a7af619b75225b6ddd9810d12b93fe0f6a1794`；Qwen `d694b878-4fcc-4bed-a29f-27771989315c`；Governance `44225502483`；CI `44225502627`；Delivery Contract `44225502968`。
 - Result: DONE。治理类 PR 仅在可信 base ACTIVE IWP 的 Architecture ownership 完全覆盖实际 diff 时返回 not-applicable；Delivery PR 继续绑定固定 SHA、复核账本和 ownership。普通受保护合并成功，无管理员绕过、auto-merge、发布或部署。
 - Next: 本治理 PR 合并后加入第五项 required check 并执行最终红灯阻断复验；W-007 仍为 PLANNED，未获启动授权。
+
+### 2026-11-18 | W-007 | STARTED
+- Actor: Human + Architecture AI
+- Scope: 建立固定 SHA 的本机隔离部署模拟、健康版本核对、失败回滚和完整清理；不使用 229、ENV-PILOT、真实数据、凭据、网络监听或 Docker。
+- Evidence: 用户明确“继续执行”并批准一次性治理解锁；GitHub Issue #7；`docs/work-packages/IWP-010.md`；D-009。
+- Result: APPROVED_BOUNDARY_ENTERED。因 Delivery Contract 缺少新 IWP bootstrap 路径，用户明确批准仅为 IWP-010 治理 PR 临时移除第五项 required check；其余四项、strict、enforce_admins、禁止 force-push/删除保持不变。
+- Next: 合并 IWP-010 治理 PR后立即恢复第五项 required check并做红灯复验；之后 Delivery 才可在授权路径内实施本机模拟器。

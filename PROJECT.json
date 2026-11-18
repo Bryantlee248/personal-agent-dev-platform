@@ -8,7 +8,7 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
+    "active_work_items": ["W-007"],
     "next_work_item": "W-007"
   },
   "authority": {
@@ -33,7 +33,8 @@
       { "id": "D-005", "status": "accepted" },
       { "id": "D-006", "status": "provisional" },
       { "id": "D-007", "status": "accepted" },
-      { "id": "D-008", "status": "accepted" }
+      { "id": "D-008", "status": "accepted" },
+      { "id": "D-009", "status": "accepted" }
     ],
     "work_packages": [
       {
@@ -166,6 +167,24 @@
             "paths": ["ops/github-delivery", "e2e/github-delivery.mjs", ".github/workflows/delivery-contract.yml", "package.json"]
           }
         ]
+      },
+      {
+        "id": "IWP-010",
+        "roadmap_id": "W-007",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly authorized continuing into W-007 and approved the one-time governance bootstrap procedure on 2026-11-18; scope is a local isolated fixed-SHA deployment simulation only.",
+        "file_ownership": [
+          {
+            "owner": "Architecture AI",
+            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-010.md"]
+          },
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/local-deploy", "e2e/local-deploy.mjs", "e2e/fixtures/local-deploy", "docs/evidence/IWP-010", "package.json"]
+          }
+        ]
       }
     ],
     "artifacts": [
@@ -187,7 +206,8 @@
   "environments": [
     { "id": "ENV-LOCAL", "kind": "development", "status": "active", "contains_real_data": false },
     { "id": "ENV-GITHUB", "kind": "control-plane", "status": "active", "contains_real_data": false },
-    { "id": "ENV-PILOT", "kind": "pilot", "status": "not-authorized", "contains_real_data": false }
+    { "id": "ENV-PILOT", "kind": "pilot", "status": "not-authorized", "contains_real_data": false },
+    { "id": "ENV-LOCAL-TEST", "kind": "ephemeral-test", "status": "authorized", "contains_real_data": false }
   ],
   "components": [
     { "id": "CMP-GOV", "name": "治理控制面", "status": "active" },
