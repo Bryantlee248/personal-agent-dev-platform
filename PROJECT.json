@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": null
+    "active_work_items": ["W-010"],
+    "next_work_item": "W-010"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -103,6 +103,20 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/handoff", "e2e/handoff.mjs", "e2e/fixtures/handoff", "docs/evidence/IWP-005", "docs/work-packages/IWP-005.md", "package.json"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-006",
+        "roadmap_id": "W-010",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly approved the redesigned handoff contract on 2026-11-18; scope is a local attended validator bound to policy and authorization stored at a fixed Git commit.",
+        "file_ownership": [
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/handoff-runtime", "e2e/handoff-runtime.mjs", "e2e/fixtures/handoff-runtime", "docs/evidence/IWP-006", "docs/work-packages/IWP-006.md", "package.json"]
           }
         ]
       }

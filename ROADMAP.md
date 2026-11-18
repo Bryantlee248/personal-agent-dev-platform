@@ -13,3 +13,4 @@
 | W-007 | 建立受控测试环境部署、健康核对与回滚演练 | Delivery AI | W-006 | 部署与回滚证据 | PLANNED |
 | W-008 | 连续完成 10 个真实低风险工作项并完成执行层选型 | Architecture AI | W-007 | 指标报告、Paseo/Orca/回退方案比较、Go/No-Go | PLANNED |
 | W-009 | 验证 Windows 受限执行兼容性并对照本机已有 Agent provider | Delivery AI | W-003 | 上游依据、隔离 shell/worktree、权限与经济性对照 | BLOCKED |
+| W-010 | 用固定 SHA 策略、command ID 和规范化精确路径重建接力契约 | Delivery AI | W-004 | 固定策略、越权拒绝、两轮内独立复核 | ACTIVE |

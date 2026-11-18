@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "policy_id": "personal-agent-handoff-v1",
+  "transitions": [
+    "Architecture>Delivery",
+    "Delivery>Verification",
+    "Verification>Human"
+  ],
+  "work_items": {
+    "W-010": {
+      "work_package": "IWP-006",
+      "delivery_write_paths": [
+        "docs/evidence/IWP-006",
+        "e2e/fixtures/handoff-runtime",
+        "e2e/handoff-runtime.mjs",
+        "ops/handoff-runtime",
+        "package.json"
+      ],
+      "command_ids": [
+        "build",
+        "converge",
+        "governance",
+        "handoff-runtime-e2e",
+        "lint",
+        "test",
+        "verify"
+      ]
+    }
+  },
+  "commands": {
+    "build": ["npm", "run", "build"],
+    "converge": ["node", "tools/converge.mjs"],
+    "governance": ["node", "scripts/validate-governance.mjs"],
+    "handoff-runtime-e2e": ["node", "e2e/handoff-runtime.mjs"],
+    "lint": ["npm", "run", "lint"],
+    "test": ["npm", "test"],
+    "verify": ["node", "tools/verify.mjs"]
+  }
+}

@@ -99,3 +99,10 @@
 - Evidence: `docs/evidence/IWP-005/2026-11-18-handoff-mvp-blocked.md`；Qwen 会话 `4ee203c8-ac49-4025-80ae-be3b516c5ce8`、`3d400d97-1cf1-4e68-bd5c-ee54d0ec7d34`。
 - Result: BLOCKED。两轮只读复核均发现实质安全缺陷，触发返工上限；未提交实现已撤回，未把已知不安全代码推上主分支。
 - Next: 需要 Architecture 重新设计为固定 SHA 策略读取、command ID 和规范化精确路径白名单后，另建工作包；当前不继续第 3 轮。
+
+### 2026-11-18 | W-010 | STARTED
+- Actor: Architecture AI
+- Scope: 以固定 SHA 中的授权和策略、command ID、跨平台规范化精确路径白名单重建接力契约。
+- Evidence: 用户明确“同意”；`contracts/handoff-policy.json`；`docs/work-packages/IWP-006.md`。
+- Result: APPROVED_BOUNDARY_ENTERED。先冻结可信策略并通过 229，再允许 Delivery 实现；策略不得为迁就实现而修改。
+- Next: 提交治理与策略基线，待远端门通过后实施 IWP-006。
