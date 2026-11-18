@@ -5,10 +5,16 @@ const headSha = '1'.repeat(40);
 const baseSha = '2'.repeat(40);
 const manifest = {
   effective: {
-    work_packages: [{
-      id: 'IWP-008', status: 'ACTIVE', approval: 'User explicitly approved this bounded work package.',
-      file_ownership: [{ owner: 'Delivery AI', paths: ['ops/github-delivery', 'e2e/github-delivery.mjs'] }]
-    }]
+    work_packages: [
+      {
+        id: 'IWP-008', status: 'ACTIVE', approval: 'User explicitly approved this bounded work package.',
+        file_ownership: [{ owner: 'Delivery AI', paths: ['ops/github-delivery', 'e2e/github-delivery.mjs'] }]
+      },
+      {
+        id: 'IWP-009', status: 'ACTIVE', approval: 'User explicitly approved this governance work package.',
+        file_ownership: [{ owner: 'Architecture AI', paths: ['PROJECT.json', 'ROADMAP.md', 'docs/work-packages/IWP-009.md'] }]
+      }
+    ]
   }
 };
 const body = [
@@ -34,6 +40,11 @@ function reject(name, edit) {
 }
 
 accept('valid contract', () => {}, (r) => r.ok && r.iwp === 'IWP-008' && r.human_merge_required);
+accept('architecture not applicable', (p) => {
+  p.body = '<!-- gov:role=Architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['PROJECT.json', 'docs/work-packages/IWP-009.md'];
+}, (r) => r.ok && r.applicable === false && r.reason === 'architecture-governance-only'
+  && r.iwp === 'IWP-009' && r.changed_paths === 2 && r.human_merge_required);
 const invalid = [
   ['head drift', (p) => { p.headSha = '3'.repeat(40); }],
   ['verification drift', (p) => { p.body = p.body.replace(`Verification fixed SHA: ${headSha}`, `Verification fixed SHA: ${'3'.repeat(40)}`); }],
@@ -51,6 +62,32 @@ const invalid = [
   ['empty diff', (p) => { p.changedPaths = []; }]
 ];
 for (const [name, edit] of invalid) reject(name, edit);
+reject('architecture mixed path', (p) => {
+  p.body = '<!-- gov:role=architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['PROJECT.json', 'ops/github-delivery/validate.mjs'];
+});
+reject('architecture inactive IWP', (p) => {
+  p.body = '<!-- gov:role=architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['PROJECT.json'];
+  p.manifest.effective.work_packages[1].status = 'CLOSED';
+});
+reject('architecture missing IWP', (p) => {
+  p.body = '<!-- gov:role=architecture -->';
+  p.changedPaths = ['PROJECT.json'];
+});
+reject('architecture missing ownership', (p) => {
+  p.body = '<!-- gov:role=architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['PROJECT.json'];
+  p.manifest.effective.work_packages[1].file_ownership = [];
+});
+reject('architecture unsafe path', (p) => {
+  p.body = '<!-- gov:role=architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['docs/work-packages/../PROJECT.json'];
+});
+reject('architecture lookalike role', (p) => {
+  p.body = '<!-- gov:role=not-architecture -->\n<!-- gov:iwp=IWP-009 -->';
+  p.changedPaths = ['PROJECT.json'];
+});
 
 if (failures.length) {
   console.error(`github-delivery tests failed: ${failures.join(', ')}`);
