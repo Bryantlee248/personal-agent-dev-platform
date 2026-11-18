@@ -120,3 +120,10 @@
 - Evidence: GitHub Actions run `44213170484`，independent-verify 报 `fixed_sha must be reachable from current HEAD`。
 - Result: AUTHORIZED_BOUNDARY_REACHED。实现与本地验证通过，但远端未完成；保留祖先安全门，改用完整 Git checkout。
 - Next: 推送 `fetch-depth: 0` 后重新等待 Governance 与完整 CI。
+
+### 2026-11-18 | W-010 | DONE
+- Actor: Delivery AI + Independent Verification AI + server229 Runner
+- Scope: 完成固定 SHA 策略接力契约的最终远端验证与状态同步。
+- Evidence: 提交 `e386cbfe1c0189d653bfa6aea82603d3cf1a5944`；Governance `44213588660`；CI `44213588685`。
+- Result: DONE。两轮 Qwen 复核 PASS，229 的治理、收敛、独立验证和构建测试全绿；未执行命令接力、自动合并或部署。
+- Next: 可进入 W-005，建立 Verification 的 PASS/FAIL/ESCALATE 状态机与两轮返工控制；仍保持有人在场。

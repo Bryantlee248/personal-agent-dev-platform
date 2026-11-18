@@ -46,3 +46,10 @@ e2e 覆盖：虚构 SHA、非法角色、未知 command ID、自由命令字段�
 - 保留 `fixed_sha` 祖先约束，不降低安全门；CI 三个 job 的 checkout 改为
   `fetch-depth: 0`，让确定性验证具备所需 Git 历史。
 - 在修复后的 229 CI 通过前，本证据的远端完成结论不成立。
+
+## 229 最终结果
+
+- 最终验证提交：`e386cbfe1c0189d653bfa6aea82603d3cf1a5944`。
+- Governance `44213588660`：成功。
+- CI `44213588685`：converge、independent-verify、build-test 全部成功。
+- W-010/IWP-006 据此关闭；没有自动合并、发布或部署。
