@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-004"],
-    "next_work_item": "W-004"
+    "active_work_items": [],
+    "next_work_item": null
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -95,7 +95,7 @@
       {
         "id": "IWP-005",
         "roadmap_id": "W-004",
-        "status": "ACTIVE",
+        "status": "BLOCKED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User authorized executing the most suitable next step on 2026-11-17; scope is an attended, local, tool-neutral handoff MVP without deployment or automatic merge.",

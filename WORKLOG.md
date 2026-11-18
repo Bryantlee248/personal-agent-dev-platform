@@ -92,3 +92,10 @@
 - Evidence: 用户指令“根据最合适的建议执行”；D-007；`docs/work-packages/IWP-005.md`。
 - Result: APPROVED_BOUNDARY_ENTERED。允许实现接力单校验与本地/229 测试；不允许自动 Agent、自动合并或部署。
 - Next: 先通过治理门，再由 Delivery AI 实现接力校验器与失败关闭测试。
+
+### 2026-11-18 | W-004 | BLOCKED
+- Actor: Delivery AI + Independent Verification AI (Qwen)
+- Scope: 实现并独立复核有人在场的三角色结构化接力校验器。
+- Evidence: `docs/evidence/IWP-005/2026-11-18-handoff-mvp-blocked.md`；Qwen 会话 `4ee203c8-ac49-4025-80ae-be3b516c5ce8`、`3d400d97-1cf1-4e68-bd5c-ee54d0ec7d34`。
+- Result: BLOCKED。两轮只读复核均发现实质安全缺陷，触发返工上限；未提交实现已撤回，未把已知不安全代码推上主分支。
+- Next: 需要 Architecture 重新设计为固定 SHA 策略读取、command ID 和规范化精确路径白名单后，另建工作包；当前不继续第 3 轮。
