@@ -148,3 +148,10 @@
 - Evidence: 用户明确“同意”；GitHub Issue #6；branch protection 与 rulesets API 均返回 `403 Upgrade to GitHub Pro or make this repository public`。
 - Result: APPROVED_BOUNDARY_ENTERED。允许实现和验证 PR 契约、确定性检查与证据；禁止自动合并、发布、部署、公开仓库或付费升级。
 - Next: 先通过 229 Governance，再实现可落地部分；私有仓库 required checks 的机械强制保持阻断，不能以文档规则替代。
+
+### 2026-11-18 | W-006 | BLOCKED
+- Actor: Delivery AI + Independent Verification AI (Qwen) + server229 Runner
+- Scope: 完成可信 base PR 契约、固定 SHA、ownership、审查账本和真实 PR 工作流验证。
+- Evidence: `docs/evidence/IWP-008/2026-11-18-github-delivery-contract.md`；实现提交 `0a2c0da40e907724bfe46210d737f65286c0874f`；Qwen 会话 `e3247d5f-481a-4f09-8b5a-fdfd20232dff`（FAIL）、`66e50fe7-745c-474d-bba4-6e944ae0d2c1`（PASS）；关闭且未合并的 PR #11。
+- Result: HUMAN_ACTION_REQUIRED。可落地的 PR 契约和真实检查已通过；但当前 GitHub 私有仓库套餐不支持 branch protection/rulesets，无法机械阻止红灯合并，W-006 不得标记 DONE。
+- Next: 用户选择升级 GitHub Pro 或明确授权将仓库公开后，才能配置 required checks 并执行真实红灯合并阻断演练；否则保持阻断，不进入 W-007。

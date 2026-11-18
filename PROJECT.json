@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": ["W-006"],
-    "next_work_item": "W-006"
+    "active_work_items": [],
+    "next_work_item": null
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -137,7 +137,7 @@
       {
         "id": "IWP-008",
         "roadmap_id": "W-006",
-        "status": "ACTIVE",
+        "status": "BLOCKED",
         "primary": "Delivery AI",
         "verifier": "Independent Verification AI",
         "approval": "User explicitly agreed to continue on 2026-11-18; scope is the GitHub PR metadata, deterministic check, and review-ledger layer without automatic merge, release, or deployment.",
