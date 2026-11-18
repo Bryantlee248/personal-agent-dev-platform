@@ -162,3 +162,10 @@
 - Evidence: 用户明确选择“公开仓库”并同意后续治理修复；仓库可见性 `PUBLIC`；PR #12 的红灯检查使 `mergeStateStatus=BLOCKED`。
 - Result: APPROVED_BOUNDARY_ENTERED。`master` 已要求 Governance、converge、independent-verify、build-test 且管理员同样受约束；Delivery Contract 暂未列入 required checks，等待 not-applicable 修复。
 - Next: 按 IWP-009 先合并治理基线，再由 Delivery 修复并验证，最后加入完整 required checks并关闭 W-006。
+
+### 2026-11-18 | W-006 | DONE
+- Actor: Architecture AI + Delivery AI + Independent Verification AI (Qwen) + server229 Runner
+- Scope: 完成公开仓库分支保护、Delivery Contract 治理 PR 适用性修复、固定 SHA 复核和受保护合并。
+- Evidence: `docs/evidence/IWP-009/2026-11-18-w006-public-protected-delivery.md`；PR #14；实现 `92e4009246a30f212c1092cf59085490640cc606`；合并 `48a7af619b75225b6ddd9810d12b93fe0f6a1794`；Qwen `d694b878-4fcc-4bed-a29f-27771989315c`；Governance `44225502483`；CI `44225502627`；Delivery Contract `44225502968`。
+- Result: DONE。治理类 PR 仅在可信 base ACTIVE IWP 的 Architecture ownership 完全覆盖实际 diff 时返回 not-applicable；Delivery PR 继续绑定固定 SHA、复核账本和 ownership。普通受保护合并成功，无管理员绕过、auto-merge、发布或部署。
+- Next: 本治理 PR 合并后加入第五项 required check 并执行最终红灯阻断复验；W-007 仍为 PLANNED，未获启动授权。
