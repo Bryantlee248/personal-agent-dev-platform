@@ -1,0 +1,5 @@
+{
+  "purpose": "IWP-008 real PR workflow probe",
+  "side_effects": false,
+  "merge_authorized": false
+}
