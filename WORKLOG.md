@@ -183,3 +183,10 @@
 - Evidence: PR #17 合并提交 `3df69432830de4db55019b83df41891b5601a307`；PR #18 Delivery Contract `44230683512` 失败且 `mergeStateStatus=BLOCKED`；Qwen `3f4eb15d-c966-439f-ac32-80a864727ab7`（FAIL，输入不完整）、`6ef2c6a8-b9d3-40ae-83ac-d18b1aa0730b`（FAIL，实质安全缺陷）；`docs/work-packages/IWP-010.md` 的阻断结论。
 - Result: BLOCKED。完整 diff复核发现 target containment 在写入后才验证，中间 junction 可造成 sandbox 外副作用，回滚失败路径和负向测试也不充分，触发两轮上限。未通过实现已撤回，未提交、未推送或部署。
 - Next: Architecture 另建重新设计工作包，先冻结写前 containment、单实例锁、可恢复切换日志和精确失败测试；当前不得进行第 3 轮，也不进入 W-008。
+
+### 2026-11-18 | W-007 | RESTARTED
+- Actor: Human + Architecture AI
+- Scope: 以 IWP-011 重启 W-007，不恢复 IWP-010 草稿；程序只在调用方提供的空 base 临时目录下自行创建唯一 sandbox，验证事务状态机和中断恢复。
+- Evidence: 用户同意新的两阶段建议并明确批准一次性 IWP-011 bootstrap；D-010；`docs/work-packages/IWP-011.md`。
+- Result: APPROVED_BOUNDARY_ENTERED。只允许本机静态虚构制品、无网络/进程/凭据的事务演练；不接受任意 target，不写 229、ENV-PILOT 或生产。
+- Next: 治理 PR由四项 required checks 保护合并后立即恢复第五项并红灯复验；随后 Delivery 在 IWP-011 路径内实施。

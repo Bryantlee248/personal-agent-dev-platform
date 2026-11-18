@@ -8,8 +8,8 @@
   },
   "state": {
     "current_gate": "G1",
-    "active_work_items": [],
-    "next_work_item": "W-008"
+    "active_work_items": ["W-007"],
+    "next_work_item": "W-007"
   },
   "authority": {
     "governance": "GOVERNANCE.md",
@@ -34,7 +34,8 @@
       { "id": "D-006", "status": "provisional" },
       { "id": "D-007", "status": "accepted" },
       { "id": "D-008", "status": "accepted" },
-      { "id": "D-009", "status": "accepted" }
+      { "id": "D-009", "status": "accepted" },
+      { "id": "D-010", "status": "accepted" }
     ],
     "work_packages": [
       {
@@ -183,6 +184,24 @@
           {
             "owner": "Delivery AI",
             "paths": ["ops/local-deploy", "e2e/local-deploy.mjs", "e2e/fixtures/local-deploy", "docs/evidence/IWP-010", "package.json"]
+          }
+        ]
+      },
+      {
+        "id": "IWP-011",
+        "roadmap_id": "W-007",
+        "status": "ACTIVE",
+        "primary": "Delivery AI",
+        "verifier": "Independent Verification AI",
+        "approval": "User explicitly approved the redesigned W-007 approach and authorized the one-time IWP-011 governance bootstrap on 2026-11-18.",
+        "file_ownership": [
+          {
+            "owner": "Architecture AI",
+            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-011.md"]
+          },
+          {
+            "owner": "Delivery AI",
+            "paths": ["ops/transactional-deploy", "e2e/transactional-deploy.mjs", "e2e/fixtures/transactional-deploy", "docs/evidence/IWP-011", "package.json"]
           }
         ]
       }
