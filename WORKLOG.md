@@ -190,3 +190,9 @@
 - Evidence: 用户同意新的两阶段建议并明确批准一次性 IWP-011 bootstrap；D-010；`docs/work-packages/IWP-011.md`。
 - Result: APPROVED_BOUNDARY_ENTERED。只允许本机静态虚构制品、无网络/进程/凭据的事务演练；不接受任意 target，不写 229、ENV-PILOT 或生产。
 - Next: 治理 PR由四项 required checks 保护合并后立即恢复第五项并红灯复验；随后 Delivery 在 IWP-011 路径内实施。
+
+### 2026-11-18 | W-007 | BLOCKED
+- Actor: Architecture AI (governance routing); prior Delivery and Qwen evidence: `docs/evidence/IWP-011/2026-11-18-delivery-blocked.md` in the isolated Delivery branch.
+- Scope: Stop IWP-011 after two effective independent reviews with remaining P0/P1; authorize IWP-012 architecture redesign without continuing the draft or changing required checks.
+- Result: AUTHORIZED_BOUNDARY_REACHED. IWP-011 is BLOCKED; W-007 remains ACTIVE. IWP-012 is ACTIVE for Architecture only. No implementation, deployment, merge, or W-008.
+- Next: Protected Architecture PR under trusted-base IWP-011 ownership; after five required checks and normal merge, IWP-012 may add its detailed contract in a separate protected Architecture PR.
