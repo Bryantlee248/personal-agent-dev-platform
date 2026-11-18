@@ -127,3 +127,10 @@
 - Evidence: 提交 `e386cbfe1c0189d653bfa6aea82603d3cf1a5944`；Governance `44213588660`；CI `44213588685`。
 - Result: DONE。两轮 Qwen 复核 PASS，229 的治理、收敛、独立验证和构建测试全绿；未执行命令接力、自动合并或部署。
 - Next: 可进入 W-005，建立 Verification 的 PASS/FAIL/ESCALATE 状态机与两轮返工控制；仍保持有人在场。
+
+### 2026-11-18 | W-005 | STARTED
+- Actor: Architecture AI
+- Scope: 在 W-010 固定策略接力契约之上，建立确定性的 PASS/FAIL/ESCALATE 状态机和最多两轮返工控制。
+- Evidence: 用户明确指令“继续验证”；`docs/work-packages/IWP-007.md`。
+- Result: APPROVED_BOUNDARY_ENTERED。只允许有人在场的本地状态转换校验、失败关闭测试、Qwen 只读复核和 229 确定性 CI。
+- Next: 先提交治理基线并等待 229 Governance 通过；通过前不实施状态机。
