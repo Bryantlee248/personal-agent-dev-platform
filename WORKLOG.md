@@ -202,3 +202,11 @@
 - Scope: Register IWP-013 for the later Delivery implementation of the frozen local crash-recovery contract. IWP-012 remains ACTIVE; this first bootstrap PR changes only its trusted-base Architecture-owned governance paths.
 - Result: AUTHORIZED_BOUNDARY_REACHED. Delivery implementation remains gated on a second protected Architecture PR adding `docs/work-packages/IWP-013.md` and normal five-check merge. No protection change, implementation, deployment, or W-008.
 - Next: After first PR merges, bind second Architecture PR to trusted-base IWP-013; close IWP-012 only after the IWP-013 contract is merged and evidence is complete.
+
+### 2026-11-19 | PROJECT FREEZE | AUTHORIZED_BOUNDARY_REACHED
+
+- Actor: Human + Architecture AI.
+- Scope: 用户要求冻结当前项目推进并保存可追溯状态；后续转向 Paseo 本机真实项目隔离验证。
+- Evidence: `docs/evidence/IWP-013/architecture/2026-11-19-project-freeze-paseo-pivot.md`；冻结基线 `daa60200d932923c121d1fc6efba344df59752d8`；Delivery PR #28 保持 OPEN、BEHIND、Governance 红灯。
+- Result: AUTHORIZED_BOUNDARY_REACHED。W-007/IWP-012/IWP-013 未宣布 DONE；PR #28 不合并，旧 Qwen PASS 不跨 SHA 沿用；不启动 W-008。
+- Next: 保存此冻结记录后，仅在 IWP-003 的本机隔离边界内使用 Paseo 0.16.0 与本项目临时 worktree 验证受限执行、清理和资源约束，另行形成验证证据。
