@@ -230,7 +230,7 @@
         "file_ownership": [
           {
             "owner": "Architecture AI",
-            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-013.md", "docs/evidence/IWP-013/architecture"]
+            "paths": ["PROJECT.json", "ROADMAP.md", "DECISIONS.md", "WORKLOG.md", "docs/work-packages/IWP-013.md", "docs/evidence/IWP-013/architecture", "scripts/validate-governance.mjs"]
           },
           {
             "owner": "Delivery AI",
