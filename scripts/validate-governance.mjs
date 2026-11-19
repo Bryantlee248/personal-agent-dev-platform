@@ -262,7 +262,7 @@ if (args.ci && m) {
   try {
     changed = execFileSync('git', ['-C', root, 'diff', '--name-only', `${base}...HEAD`], { encoding: 'utf8' })
       .split(/\r?\n/).filter(Boolean);
-  } catch { /* 无 git 历史时跳过 */ }
+  } catch { errors.push('无法读取固定 base 到 HEAD 的 CI diff'); }
 
   let prBody = '';
   if (args.prBody) prBody = readFileSync(resolve(args.prBody), 'utf8');
@@ -273,6 +273,25 @@ if (args.ci && m) {
   const authorityDocs = new Set([m.authority?.governance, m.authority?.roadmap, m.authority?.decisions, m.authority?.worklog].filter(Boolean));
   const controlPlane = new Set(['PROJECT.json', ...authorityDocs, 'scripts/', 'contracts/', 'work/', '.github/', 'docs/']);
   const inControlPlane = (f) => [...controlPlane].some((c) => f === c || f.startsWith(c.replace(/\/$/, '') + '/'));
+
+  // PR ownership comes from the fixed base commit, never the checked-out PR tree.
+  let trusted = null;
+  const trustedWorkPackage = (iwp) => {
+    if (trusted === null) {
+      if (!/^[0-9a-f]{40}$/.test(args.base || '')) { errors.push('PR 缺少固定可信 base SHA'); trusted = false; }
+      else {
+        try {
+          execFileSync('git', ['-C', root, 'merge-base', '--is-ancestor', args.base, 'HEAD']);
+          trusted = JSON.parse(execFileSync('git', ['-C', root, 'show', `${args.base}:PROJECT.json`], { encoding: 'utf8' }));
+        }
+        catch { errors.push('无法读取可信 base 的 PROJECT.json'); trusted = false; }
+      }
+    }
+    if (!trusted) return null;
+    const wp = trusted.effective?.work_packages?.find((w) => w.id === iwp);
+    if (!wp || wp.status !== 'ACTIVE') { errors.push(`可信 base 中 IWP 未 ACTIVE: ${iwp || '(空)'}`); return null; }
+    return wp;
+  };
 
   // 检查 A：改权威文档必须同 PR 改 PROJECT.json（仅 4 个权威文档）
   const docChanged = changed.map(norm).filter((f) => authorityDocs.has(f));
@@ -286,10 +305,16 @@ if (args.ci && m) {
     const iwp = prBody.match(/<!--\s*gov:iwp\s*=\s*(\S+)\s*-->/)?.[1] || '';
     const declared = (prBody.match(/<!--\s*gov:paths\s*=\s*(.*?)\s*-->/)?.[1] || '')
       .split(',').map((s) => s.trim()).filter(Boolean).map(norm);
-    const isArch = role.includes('arch');
+    const isArch = role === 'architecture';
+    const wp = isArch ? null : trustedWorkPackage(iwp);
+    const deliveryOwned = (wp?.file_ownership || [])
+      .filter((o) => o.owner === 'Delivery AI').flatMap((o) => o.paths || []).map(norm);
+    const evidenceRoots = role === 'delivery' ? deliveryOwned.filter((p) =>
+      /^docs\/evidence\/(?:[^/.]+\/)+delivery$/.test(p) && !p.split('/').includes('..')) : [];
+    const allowedEvidence = (f) => evidenceRoots.some((p) => f.startsWith(p + '/'));
 
-    const cpChanged = changed.map(norm).filter((f) => inControlPlane(f));
-    const implChanged = changed.map(norm).filter((f) => !inControlPlane(f));
+    const cpChanged = changed.map(norm).filter((f) => inControlPlane(f) && !allowedEvidence(f));
+    const implChanged = changed.map(norm).filter((f) => !inControlPlane(f) || allowedEvidence(f));
 
     // B1：非架构角色不得改控制面文件
     if (!isArch && cpChanged.length > 0) {
@@ -306,13 +331,11 @@ if (args.ci && m) {
     }
     // B3：实施/验证角色的声明路径必须绑定 manifest 的 file_ownership
     if (!isArch) {
-      const wp = (m.effective?.work_packages || []).find((w) => w.id === iwp);
       if (!wp) {
         if (iwp || implChanged.length > 0) errors.push(`PR 声明的 gov:iwp 未在 manifest 登记: ${iwp || '(空)'}`);
       } else {
-        const owned = (wp.file_ownership || []).flatMap((o) => (o.paths || []).map(norm));
         for (const d of declared) {
-          const ok = owned.some((p) => d === p || d.startsWith(p.replace(/\/$/, '') + '/') || p.startsWith(d.replace(/\/$/, '') + '/'));
+          const ok = deliveryOwned.some((p) => d === p || d.startsWith(p.replace(/\/$/, '') + '/'));
           if (!ok) errors.push(`声明路径不在 IWP ${iwp} 的 file_ownership 内: ${d}`);
         }
       }
