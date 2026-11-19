@@ -9,7 +9,13 @@
   "state": {
     "current_gate": "G1",
     "active_work_items": ["W-007"],
-    "next_work_item": "W-007"
+    "next_work_item": "W-007",
+    "execution_hold": {
+      "status": "frozen",
+      "since": "2026-11-19",
+      "reason": "User-directed project freeze before isolated Paseo validation",
+      "evidence": "docs/evidence/IWP-013/architecture/2026-11-19-project-freeze-paseo-pivot.md"
+    }
   },
   "authority": {
     "governance": "GOVERNANCE.md",
